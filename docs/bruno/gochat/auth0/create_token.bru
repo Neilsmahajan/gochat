@@ -1,0 +1,28 @@
+meta {
+  name: create_token
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{domain}}/oauth/token
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "client_id": "{{client_id}}",
+    "client_secret": "{{client_secret}}",
+    "audience": "{{audience}}",
+    "grant_type": "client_credentials"
+  }
+}
+
+settings {
+  encodeUrl: false
+}
