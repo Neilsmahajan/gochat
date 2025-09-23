@@ -11,7 +11,6 @@ export default function NavBar() {
     <div className="nav-bar">
       <div className="nav-container">
         <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
         {isLoading ? (
           <span>Loading...</span>
         ) : user ? (
