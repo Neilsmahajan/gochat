@@ -1,27 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useUser } from "@auth0/nextjs-auth0";
+import Link from "next/link";
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
   const { user, isLoading } = useUser();
 
   return (
     <div className="nav-bar">
       <div className="nav-container">
-        <div className="nav-logo">MyApp</div>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
         {isLoading ? (
           <span>Loading...</span>
         ) : user ? (
           <>
             <span>Welcome, {user.name}</span>
-            <a href="/auth/logout">Logout</a>
+            <Link href="/auth/logout">Logout</Link>
           </>
         ) : (
-          <a href="/auth/login">Login</a>
+          <Link href="/auth/login">Login</Link>
         )}
       </div>
     </div>
